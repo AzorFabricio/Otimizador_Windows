@@ -1,126 +1,122 @@
-# 🛠️ Otimizador Seguro — Windows 10 e Windows 11
+# 🛠️ Otimizador Windows 10 e 11
 
-Script de manutenção e otimização para Windows 10 e Windows 11, desenvolvido em **Batch (.bat)**, com menu interativo para facilitar a limpeza de arquivos temporários, a manutenção do sistema e a execução de ferramentas nativas de diagnóstico e reparo do Windows.
+Script em `.bat` para manutenção, limpeza e otimização do Windows 10 e Windows 11, desenvolvido para facilitar tarefas administrativas e ajudar na manutenção preventiva do sistema operacional.
 
-O objetivo é oferecer uma ferramenta simples, prática e segura, sem desativar o Windows Update, o Microsoft Defender, o Firewall ou serviços essenciais do sistema operacional.
+O projeto utiliza ferramentas nativas do Windows e oferece um menu interativo para executar operações individualmente, permitindo que o usuário escolha quais procedimentos deseja realizar.
 
-## 📌 Funcionalidades
+## 📋 Funcionalidades
 
-- 🧹 **Limpeza de arquivos temporários do usuário:** remove arquivos temporários que podem ser excluídos.
-- 🗑️ **Limpeza de arquivos temporários do Windows:** tenta remover arquivos temporários do sistema.
-- 🌐 **Limpeza do cache DNS:** utiliza `ipconfig /flushdns`.
-- 🔍 **Verificação e reparo de arquivos do sistema:** executa `sfc /scannow`.
-- 🔧 **Reparo da imagem do Windows:** executa `DISM /Online /Cleanup-Image /RestoreHealth`.
-- ⚡ **Limpeza completa:** combina a limpeza dos arquivos temporários, a limpeza do cache DNS e a verificação SFC.
-- 💽 **Limpeza de Disco:** abre o utilitário nativo `cleanmgr`, quando disponível.
-- 💻 **Informações do sistema:** exibe dados básicos sobre o computador, o usuário e a versão do Windows.
-- 📝 **Registro de atividades:** grava operações e resultados selecionados em um arquivo de log.
-- 🔐 **Elevação administrativa:** solicita permissão de Administrador para executar as tarefas.
+- 🧹 **Limpeza de arquivos temporários:** remove arquivos temporários do usuário e do Windows, ignorando arquivos que estejam em uso ou não possam ser excluídos.
+- 🌐 **Limpeza do cache DNS:** executa o comando `ipconfig /flushdns`.
+- 🔍 **Verificação de arquivos do sistema:** executa o Verificador de Arquivos do Sistema (`sfc /scannow`).
+- 🔧 **Reparo da imagem do Windows:** utiliza o DISM para verificar e reparar componentes do sistema.
+- 💽 **Limpeza de Disco:** abre a ferramenta nativa `cleanmgr.exe`.
+- 🚀 **Aplicativos de inicialização:** abre as configurações para gerenciar os programas iniciados com o Windows.
+- ⚙️ **Desempenho visual:** abre as configurações de efeitos visuais do sistema.
+- 📦 **Desinstalação seletiva de aplicativos:** permite tentar remover aplicativos opcionais, como Clipchamp, Teams pessoal, Copilot, Notícias, Clima e outros.
+- 🎮 **Remoção seletiva de componentes Xbox:** oferece a remoção de determinados pacotes relacionados ao Xbox.
+- 🖥️ **Informações do sistema:** exibe informações básicas sobre o Windows, memória RAM e armazenamento.
+- 💾 **Configurações de armazenamento:** abre as opções de gerenciamento de espaço em disco.
+- 🔄 **Windows Update:** abre as configurações de atualização do sistema.
+- 📝 **Registro de operações:** cria o arquivo `Otimizacao_Windows.log` para registrar as principais ações executadas.
 
-## 🖥️ Compatibilidade
+## 💻 Sistemas compatíveis
 
 - Windows 10
 - Windows 11
-- Arquiteturas x64 e x86, conforme a disponibilidade das ferramentas nativas do sistema.
 
 **Requisitos:**
-- Permissão de Administrador.
-- Prompt de Comando e Windows PowerShell disponíveis.
-- Conexão com a internet pode ser necessária para determinadas operações do DISM.
+- Permissões de administrador para executar o script.
+- Windows PowerShell disponível, conforme as operações utilizadas.
+- Ferramentas nativas do Windows necessárias para cada funcionalidade.
+- Conexão com a internet para operações de reparo que dependam do Windows Update.
 
-## 📥 Como baixar
+A disponibilidade de aplicativos e recursos pode variar conforme a edição, a versão e a configuração do Windows.
 
-1. Acesse o repositório deste projeto no GitHub.
-2. Clique no botão **Code**.
-3. Selecione **Download ZIP** ou clone o repositório utilizando o Git.
+## 📥 Como baixar e executar
 
-Para clonar o repositório pelo terminal:
+### 1. Baixe o projeto
 
-```bash
-git clone URL_DO_SEU_REPOSITORIO
-```
+Na página do repositório GitHub, clique em **Code → Download ZIP** e extraia os arquivos para uma pasta de sua preferência.
 
-Substitua `URL_DO_SEU_REPOSITORIO` pelo endereço real do repositório.
+### 2. Execute o script
 
-## ▶️ Como executar
+Localize o arquivo:
 
-1. Baixe o arquivo `Otimizador_Windows_10_11.bat`.
-2. Salve-o em uma pasta de sua preferência.
-3. Execute o arquivo `.bat`.
-4. Autorize a solicitação de privilégios administrativos.
-5. Escolha uma opção no menu e siga as instruções apresentadas.
+`Otimizador_Windows_10_11.bat`
 
-**Recomendação:** feche os programas desnecessários antes de executar a limpeza. Se possível, salve seus trabalhos e crie um ponto de restauração antes de realizar operações de manutenção.
+Clique com o botão direito e selecione **Executar como administrador**. O script também tenta solicitar a elevação de privilégios automaticamente.
 
-## 📋 Menu de opções
+### 3. Escolha uma operação
+
+Utilize o menu apresentado no terminal para selecionar a tarefa desejada.
 
 | Opção | Função |
 |---|---|
-| 1 | Limpar arquivos temporários do usuário |
-| 2 | Limpar arquivos temporários do Windows |
+| 1 | Limpar temporários do usuário |
+| 2 | Limpar temporários do Windows |
 | 3 | Limpar cache DNS |
-| 4 | Verificar e reparar arquivos do sistema (SFC) |
-| 5 | Reparar a imagem do Windows (DISM) |
-| 6 | Executar limpeza completa |
-| 7 | Abrir a Limpeza de Disco, se disponível |
-| 8 | Mostrar informações básicas do sistema |
-| 0 | Sair do programa |
+| 4 | Verificar arquivos do sistema |
+| 5 | Reparar a imagem do Windows |
+| 6 | Abrir Limpeza de Disco |
+| 7 | Gerenciar aplicativos de inicialização |
+| 8 | Configurar efeitos visuais |
+| 9 | Gerenciar aplicativos opcionais |
+| 10 | Exibir informações do sistema |
+| 11 | Abrir configurações de armazenamento |
+| 12 | Abrir Windows Update |
+| L | Abrir o arquivo de log |
+| 0 | Encerrar o programa |
 
-## 📝 Arquivo de log
+## ⚠️ Avisos importantes
 
-O programa registra atividades em:
+- Execute o script por sua conta e risco, preferencialmente após criar um ponto de restauração e manter um backup dos arquivos importantes.
+- Leia as mensagens exibidas antes de confirmar qualquer operação.
+- A limpeza de arquivos temporários pode liberar espaço, mas não garante aumento perceptível de desempenho em todos os computadores.
+- As verificações SFC e DISM podem demorar vários minutos.
+- A desinstalação de aplicativos pode remover funcionalidades utilizadas pelo usuário. A remoção de componentes Xbox, por exemplo, pode afetar a Game Bar e recursos associados.
+- O script remove pacotes de aplicativos do usuário atual e não remove o provisionamento desses pacotes para novos usuários.
+- O funcionamento depende da versão do Windows, das permissões disponíveis e dos pacotes instalados.
+- Este projeto não desativa indiscriminadamente serviços essenciais, o Windows Defender ou o Windows Update.
+- Não existe garantia de compatibilidade com todas as versões futuras do Windows.
 
-`Otimizacao_Windows.log`
+**Recomendação:** revise o código-fonte antes de executá-lo, principalmente em computadores corporativos ou equipamentos que contenham dados importantes.
 
-O arquivo é criado na mesma pasta do script e permite consultar registros de operações executadas.
+## 📂 Estrutura do projeto
 
-## 🔒 Segurança e observações
+```text
+Otimizador-Windows/
+├── Otimizador_Windows_10_11.bat
+├── Otimizacao_Windows.log
+└── README.md
+```
 
-- O script não desativa intencionalmente o Windows Update, o Microsoft Defender ou o Firewall.
-- A limpeza de arquivos temporários pode ignorar arquivos que estejam em uso ou protegidos pelo sistema.
-- O comando SFC verifica a integridade dos arquivos protegidos do Windows e pode tentar repará-los.
-- O DISM verifica e tenta reparar a imagem do Windows.
-- Os resultados dependem do estado do sistema, das permissões e da disponibilidade dos componentes necessários.
-- A limpeza de arquivos temporários não garante aumento de desempenho; os benefícios dependem da situação do computador.
-- A opção de limpeza completa executa o SFC, mas não inclui automaticamente o DISM.
-
-**Importante:** revise o conteúdo do script antes de executá-lo e utilize-o por sua conta e risco. Recomenda-se manter backups dos arquivos importantes.
-
-## 🧰 Tecnologias utilizadas
-
-- Windows Batch Script (`.bat`)
-- Windows Command Prompt (CMD)
-- Windows PowerShell
-- System File Checker (SFC)
-- Deployment Image Servicing and Management (DISM)
-- IPConfig
-- System Information (`systeminfo`)
+O arquivo de log é criado durante a execução. Portanto, ele pode não existir na primeira vez que o programa for iniciado.
 
 ## 🎯 Objetivo do projeto
 
-Disponibilizar uma ferramenta gratuita e de fácil utilização para auxiliar na manutenção preventiva do Windows, reunindo comandos nativos em um único menu.
+Disponibilizar uma ferramenta simples, gratuita e interativa para auxiliar usuários domésticos, técnicos de informática e profissionais de suporte na manutenção preventiva de computadores com Windows 10 e Windows 11.
 
 ## 🤝 Contribuições
 
-Sugestões, melhorias e correções são bem-vindas!
+Sugestões, correções e melhorias são bem-vindas.
 
-1. Faça um fork do repositório.
+1. Faça um fork deste repositório.
 2. Crie uma branch para sua alteração.
-3. Realize as modificações e os testes.
-4. Envie um Pull Request com a descrição das melhorias.
+3. Implemente e teste as modificações.
+4. Envie um pull request descrevendo as melhorias realizadas.
 
 ## 📄 Licença
 
-Este projeto pode ser distribuído sob a licença MIT, desde que o repositório inclua o arquivo `LICENSE` correspondente.
+Este projeto ainda não possui uma licença de distribuição definida. Antes de permitir a reutilização, modificação ou redistribuição por terceiros, adicione um arquivo `LICENSE` com os termos escolhidos.
 
 ## 👨‍💻 Autor
 
 **Fabrício Azor**
 
-Desenvolvedor e profissional de Tecnologia da Informação, com experiência em programação, manutenção de computadores, servidores Windows e Linux.
-
-🌐 Portfólio: https://www.azorweb.com.br
+- Website: https://www.azorweb.com.br
+- GitHub: https://github.com/
 
 ---
 
-⭐ Se este projeto foi útil para você, considere deixar uma estrela no repositório!
+⭐ Se este projeto foi útil para você, considere deixar uma estrela no repositório e compartilhar sugestões para futuras melhorias.
